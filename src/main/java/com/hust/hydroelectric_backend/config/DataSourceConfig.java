@@ -19,7 +19,8 @@ public class DataSourceConfig {
     @Bean(name = "hydroDataSource")
     @Qualifier("hydroDataSource")
     public DataSource testDataSource() throws Exception {
-        return getDataSource("jdbc:mysql://localhost:3306/hydro_electric?useSSL=false&serverTimezone=GMT%2B8", "root", "123456");
+//        return getDataSource("jdbc:mysql://localhost:3306/hydro_electric?useSSL=false&serverTimezone=GMT%2B8&useUnicode=true&characterEncoding=UTF-8", "root", "root");
+        return getDataSource("jdbc:sqlserver://47.111.144.250:1433;DatebaseName=hydro_electric", "sa", "BYzhsw123");
     }
 
     private DataSource getDataSource(String url, String username, String password){

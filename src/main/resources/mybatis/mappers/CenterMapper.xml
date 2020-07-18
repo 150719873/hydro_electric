@@ -6,7 +6,7 @@
 
     <insert id="save" parameterType="com.hust.hydroelectric_backend.Entity.Center">
         insert into
-          t_center(
+          hydro_electric.dbo.t_center(
             center_no,
             install_place,
             create_time,
@@ -27,7 +27,7 @@
 
     <update id="delete" parameterType="java.lang.Integer">
         update
-          t_center
+          hydro_electric.dbo.t_center
         set
           is_delete = 1
         where
@@ -38,7 +38,7 @@
         select
           *
         from
-          t_center
+          hydro_electric.dbo.t_center
         where
           enprNo = #{enprNo}
           and is_delete = 0
@@ -48,7 +48,7 @@
         select
           *
         from
-          t_center
+          hydro_electric.dbo.t_center
         where
           c_id = #{cId}
           and is_delete = 0

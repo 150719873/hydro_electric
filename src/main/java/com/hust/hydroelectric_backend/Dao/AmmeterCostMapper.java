@@ -3,6 +3,7 @@ package com.hust.hydroelectric_backend.Dao;
 import com.github.pagehelper.Page;
 import com.hust.hydroelectric_backend.Entity.Ammeters.AmmeterCost;
 import com.hust.hydroelectric_backend.Entity.VO.MeterDailyCost;
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 

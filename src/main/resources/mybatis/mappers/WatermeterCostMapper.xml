@@ -10,7 +10,7 @@
           cost_date as dateline,
           0 as water_type
         from
-          t_watermeter_cost
+          hydro_electric.dbo.t_watermeter_cost
         where
           watermeter_no = #{meterNo}
           and enprNo = #{enprNo}
@@ -18,7 +18,7 @@
 
     <insert id="save" parameterType="com.hust.hydroelectric_backend.Entity.Watermeters.WatermeterCost">
         insert into
-          t_watermeter_cost(
+          hydro_electric.dbo.t_watermeter_cost(
             u_id,
             watermeter_usage,
             cost_money,

@@ -6,13 +6,8 @@ import com.hust.hydroelectric_backend.Service.AreaServices.EnprService;
 import com.hust.hydroelectric_backend.Service.BlackService;
 import com.hust.hydroelectric_backend.utils.ResponseHandler;
 import com.hust.hydroelectric_backend.utils.result.ResultData;
-import jdk.nashorn.internal.runtime.regexp.joni.constants.OPCode;
-import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.config.BeanPostProcessor;
 import org.springframework.web.bind.annotation.*;
-
-import javax.annotation.PostConstruct;
 
 /**
  * @author: suxinyu

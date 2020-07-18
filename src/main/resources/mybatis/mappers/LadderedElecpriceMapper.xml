@@ -7,7 +7,7 @@
         select
           *
         from
-          t_laddered_elecprice
+          hydro_electric.dbo.t_laddered_elecprice
         where
           cost_type = #{costType}
           and voltageType = #{voltageType}
@@ -18,7 +18,7 @@
         select
           *
         from
-          t_laddered_elecprice
+          hydro_electric.dbo.t_laddered_elecprice
         where
           voltageType = #{voltageType}
           and enprNo = #{enprNo}

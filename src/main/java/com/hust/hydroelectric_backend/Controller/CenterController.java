@@ -22,7 +22,7 @@ public class CenterController {
     /**
      * 添加集中器
      */
-    @PostMapping("/center")
+    @PostMapping("/addCenter")
     public ResultData addCenter(@RequestBody Center center){
         return ResponseHandler.doHandle(() -> centerService.addCenter(center));
     }
@@ -30,7 +30,7 @@ public class CenterController {
     /**
      * 删除集中器
      */
-    @DeleteMapping("/center")
+    @DeleteMapping("/delCenter")
     public ResultData delCenter(@RequestParam("id") int id){
         return ResponseHandler.doHandle(() -> centerService.delCenter(id));
     }

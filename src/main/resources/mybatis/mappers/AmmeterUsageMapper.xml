@@ -10,7 +10,7 @@
           read_date as dateline,
           1 as water_type
         from
-          t_ammeter_usage
+          hydro_electric.dbo.t_ammeter_usage
         where
           ammeter_no = #{ammeterNo}
           and enprNo = #{enprNo}
@@ -22,7 +22,7 @@
           read_date as dateline,
           1 as water_type
         from
-          t_ammeter_usage
+          hydro_electric.dbo.t_ammeter_usage
         where
           ammeter_no = #{ammeterNo}
           and enprNo = #{enprNo}
@@ -34,7 +34,7 @@
           read_date as dateline,
           1 as water_type
         from
-          t_ammeter_usage
+          hydro_electric.dbo.t_ammeter_usage
         where
           ammeter_no = #{ammeterNo}
           and enprNo = #{enprNo}
@@ -46,7 +46,7 @@
           read_date as dateline,
           1 as water_type
         from
-          t_ammeter_usage
+          hydro_electric.dbo.t_ammeter_usage
         where
           ammeter_no = #{ammeterNo}
           and enprNo = #{enprNo}
@@ -58,7 +58,7 @@
           read_date as dateline,
           1 as water_type
         from
-          t_ammeter_usage
+          hydro_electric.dbo.t_ammeter_usage
         where
           ammeter_no = #{ammeterNo}
           and enprNo = #{enprNo}
@@ -68,13 +68,13 @@
         select
           sum(ammeter_usage)
         from
-          t_ammeter_usage
+          hydro_electric.dbo.t_ammeter_usage
         where
           ammeter_no in(
             select
               ammeter_no
             from
-              t_ammeter
+              hydro_electric.dbo.t_ammeter
             where
               c_id = #{cid}
               and is_delete = 0
@@ -88,7 +88,7 @@
 
     <insert id="save" parameterType="com.hust.hydroelectric_backend.Entity.Ammeters.AmmeterUsage">
         insert into
-          t_ammeter_usage(
+          hydro_electric.dbo.t_ammeter_usage(
             ammeter_no,
             ammeter_usage,
             sharp_usage,

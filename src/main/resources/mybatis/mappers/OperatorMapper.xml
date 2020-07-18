@@ -14,7 +14,7 @@
             operator_type,
             password
         FROM
-          t_operator
+          hydro_electric.dbo.t_operator
         where
           account = #{account}
           and password = #{password}
@@ -25,14 +25,14 @@
         select
           *
         from
-          t_operator
+          hydro_electric.dbo.t_operator
         where
           operator_id = #{id}
     </select>
 
     <insert id="addOperator" parameterType="com.hust.hydroelectric_backend.Entity.Operator">
         insert into
-          t_operator(
+          hydro_electric.dbo.t_operator(
             operator_name,
             account,
             password,
@@ -51,7 +51,7 @@
 
     <update id="uptOperator" parameterType="com.hust.hydroelectric_backend.Entity.Operator">
         update
-          t_operator
+            hydro_electric.dbo.t_operator
         <set>
             <if test="operatorName !=null"> ,operator_name = #{operatorName}</if>
             <if test="account !=null"> ,account = #{account}</if>

@@ -5,7 +5,7 @@
     <!--mapper接口所在包-->
     <insert id="save" parameterType="com.hust.hydroelectric_backend.Entity.Payhistory" useGeneratedKeys="true" keyProperty="id">
         insert into
-          t_payhistory(
+          hydro_electric.dbo.t_payhistory(
             u_id,
             pay_time,
             pay_amount,
@@ -22,7 +22,7 @@
 
     <insert id="update" parameterType="com.hust.hydroelectric_backend.Entity.Payhistory">
         update
-          t_payhistory
+            hydro_electric.dbo.t_payhistory
         <set>
             <if test="uId !=null"> ,u_id = #{uId}</if>
             <if test="payTime !=null"> ,pay_time = #{payTime}</if>
@@ -39,7 +39,7 @@
         select
           *
         from
-          t_payhistory
+          hydro_electric.dbo.t_payhistory
         where
           id = #{id}
     </select>
@@ -48,7 +48,7 @@
         select
           *
         from
-          t_payhistory
+            hydro_electric.dbo.t_payhistory
         where
           enprNo = #{enprNo}
         <if test="startLine !=-1">
@@ -67,7 +67,7 @@
         select
           *
         from
-          t_payhistory
+            hydro_electric.dbo.t_payhistory
         where
           operator_id = #{operatorId}
         <if test="startLine !=-1">
@@ -86,7 +86,7 @@
         select
         *
         from
-        t_payhistory
+        hydro_electric.dbo.t_payhistory
         where
         u_id = #{uId}
         <if test="startLine !=-1">

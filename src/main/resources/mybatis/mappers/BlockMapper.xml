@@ -10,7 +10,7 @@
           b_name,
           c_id
         from
-          t_block
+          hydro_electric.dbo.t_block
         where
           b_name = #{blockName}
           and c_id = #{cId}
@@ -18,7 +18,7 @@
 
     <insert id="saveBlock" parameterType="com.hust.hydroelectric_backend.Entity.Areas.Block" useGeneratedKeys="true" keyProperty="bId">
         insert into
-          t_block(
+          hydro_electric.dbo.t_block(
             b_name,
             c_id
           ) values (
@@ -31,7 +31,7 @@
         select
           *
         from
-          t_block
+          hydro_electric.dbo.t_block
         where
           c_id = #{cid}
           and is_delete = 0
@@ -41,7 +41,7 @@
         select
           *
         from
-          t_block
+          hydro_electric.dbo.t_block
         where
           b_id = #{bid}
           and is_delete = 0
@@ -49,7 +49,7 @@
 
     <update id="delBlock" parameterType="java.lang.Integer">
         update
-          t_block
+          hydro_electric.dbo.t_block
         set
           is_delete = 1
         where
@@ -58,7 +58,7 @@
 
     <update id="uptBlock" parameterType="com.hust.hydroelectric_backend.Entity.Areas.Block">
         update
-          t_block
+          hydro_electric.dbo.t_block
         <set>
             <if test="bName !=null"> ,b_name = #{bName}</if>
             <if test="cId !=null"> ,c_id = #{cId}</if>

@@ -80,8 +80,8 @@ public class AmmeterSchedule {
                 cost = getNormalCost(singlePrice, dayUsage);
                 ammeterCost.setCostMoney(cost);
             } else if(priceType.equals("LADDER")) { //阶梯计费
-                int voltageType = ammeter.getVoltageType();
-                List<LadderedElecprice> levels = ladderedElecpriceMapper.getPriceList(ammeter.getEnprNo(), voltageType);
+                int voltageType = ammeter.getVoltageType();//用电类型
+                List<LadderedElecprice> levels = ladderedElecpriceMapper.getPriceList(ammeter.getEnprNo(), voltageType);//阶梯电价
                 cost = getLadderCost(levels, dayUsage, ammeter.getMonthAmount());
                 ammeterCost.setCostMoney(cost);
             } else if(priceType.equals("LEVEL")) { //分时段计费
@@ -161,20 +161,21 @@ public class AmmeterSchedule {
         BigDecimal cost = BigDecimal.ZERO;
         int curLevel = levelCnt-1;
         for(; curLevel >=0 ;curLevel--){
-            if(monthAmount.compareTo(ladders[curLevel]) == 1) break;
+            if(monthAmount.compareTo(ladders[curLevel]) == 1)
+                break;//月用量高于该阶梯就跳出循环
         }
 
         BigDecimal excludeToday = monthAmount.subtract(dayUsage);
         if(curLevel == 0) {
-            cost = dayUsage.multiply(prices[0]);
+            cost = dayUsage.multiply(prices[0]);//第一阶梯直接用单价乘以用电量
         } else {
             boolean isLower = excludeToday.compareTo(ladders[curLevel]) == -1;
-            if(isLower){
-                BigDecimal beyond = monthAmount.subtract(ladders[curLevel]);
-                BigDecimal rest = dayUsage.subtract(beyond);
-                BigDecimal higher = beyond.multiply(prices[curLevel]);
-                BigDecimal lower = rest.multiply(prices[curLevel-1]);
-                cost = higher.add(lower);
+            if(isLower){//今天用电量刚好超出某阶梯电量，旦昨天未超出的情况
+                BigDecimal beyond = monthAmount.subtract(ladders[curLevel]);//计算超出电量
+                BigDecimal rest = dayUsage.subtract(beyond);//未超出电量
+                BigDecimal higher = beyond.multiply(prices[curLevel]);//超出电费
+                BigDecimal lower = rest.multiply(prices[curLevel-1]);//未超出电费
+                cost = higher.add(lower);//今日总电费
             } else {
                 cost = dayUsage.multiply(prices[curLevel]);
             }

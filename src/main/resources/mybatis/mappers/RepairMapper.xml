@@ -5,7 +5,7 @@
     <!--mapper接口所在包-->
     <insert id="save" parameterType="com.hust.hydroelectric_backend.Entity.Repair">
         insert into
-          t_repair(
+          hydro_electric.dbo.t_repair(
             u_id,
             u_tel,
             u_name,
@@ -28,7 +28,7 @@
         select
           *
         from
-          t_repair
+        hydro_electric.dbo.t_repair
         where
           enprNo = #{enprNo}
           <if test="state !=-1"> and state = #{state}</if>
@@ -36,7 +36,7 @@
 
     <update id="uptRepair" parameterType="com.hust.hydroelectric_backend.Entity.Repair">
         update
-          t_repair
+        hydro_electric.dbo.t_repair
         <set>
             <if test="uId !=null"> ,u_id = #{uId}</if>
             <if test="uTel !=null"> ,u_tel = #{uTel}</if>

@@ -10,7 +10,7 @@
           cost_date as dateline,
           1 as water_type
         from
-          t_ammeter_cost
+          hydro_electric.dbo.t_ammeter_cost
         where
           ammeter_no = #{meterNo}
           and enprNo = #{enprNo}
@@ -22,7 +22,7 @@
           sharp_cost as dateline,
           1 as water_type
         from
-          t_ammeter_cost
+          hydro_electric.dbo.t_ammeter_cost
         where
           ammeter_no = #{meterNo}
           and enprNo = #{enprNo}
@@ -34,7 +34,7 @@
           peek_cost as dateline,
           1 as water_type
         from
-          t_ammeter_cost
+          hydro_electric.dbo.t_ammeter_cost
         where
           ammeter_no = #{meterNo}
           and enprNo = #{enprNo}
@@ -46,7 +46,7 @@
           flat_cost as dateline,
           1 as water_type
         from
-          t_ammeter_cost
+          hydro_electric.dbo.t_ammeter_cost
         where
           ammeter_no = #{meterNo}
           and enprNo = #{enprNo}
@@ -58,7 +58,7 @@
           low_cost as dateline,
           1 as water_type
         from
-          t_ammeter_cost
+          hydro_electric.dbo.t_ammeter_cost
         where
           ammeter_no = #{meterNo}
           and enprNo = #{enprNo}
@@ -66,7 +66,7 @@
 
     <insert id="save" parameterType="com.hust.hydroelectric_backend.Entity.Ammeters.AmmeterCost">
         insert into
-          t_ammeter_cost(
+          hydro_electric.dbo.t_ammeter_cost(
             u_id,
             ammeter_usage,
             cost_money,

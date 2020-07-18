@@ -35,16 +35,16 @@ public class UserController {
     /**
      * 获取用户详细信息
      */
-    @GetMapping("/user")
+    @GetMapping("/findUser")
     public ResultData getUser(@RequestParam(name = "uId", defaultValue = "-1") int id,
                               @RequestParam("enprNo") String enprNo) {
-        return ResponseHandler.doHandle(() -> userService.findByUserId(id, enprNo));
+        return ResponseHandler.doHandle(() -> userService.findByUserIdAndEnprNo(id, enprNo));
     }
 
     /**
      * 删除用户
      */
-    @DeleteMapping("/user")
+    @DeleteMapping("/delUser")
     public ResultData delUser(@RequestParam(name = "uId", defaultValue = "-1") int id,
                               @RequestParam("enprNo") String enprNo) {
         return ResponseHandler.doHandle(() -> userService.delUserById(id, enprNo));
@@ -53,7 +53,7 @@ public class UserController {
     /**
      * 修改用户信息
      */
-    @PutMapping("/user")
+    @PutMapping("/uptUser")
     public ResultData uptUser(@RequestBody User user) {
         return ResponseHandler.doHandle(() -> userService.uptUser(user));
     }
@@ -70,6 +70,7 @@ public class UserController {
 
     /**
      * 根据用户id获取用户相关信息
+     * mark一下，测试结果为空
      */
     @GetMapping("/GetUserInfoByUid")
     public ResultData getUserInfoByUid(@RequestParam(value = "uId", defaultValue = "-1") int uid) {

@@ -8,17 +8,28 @@
         SELECT
           *
         FROM
-          t_user
+          hydro_electric.dbo.t_user
         where
           enprNo = #{enprNo}
           and is_delete = 0
     </select>
 
-    <select id="findByUid" resultType="com.hust.hydroelectric_backend.Entity.User">
+    <select id="findByUidAndEnprNo" resultType="com.hust.hydroelectric_backend.Entity.User">
         SELECT
           *
         FROM
-          t_user
+          hydro_electric.dbo.t_user
+        where
+          u_id = #{uid}
+          and enprNo = #{enprNo}
+          and is_delete = 0
+    </select>
+
+    <select id="findByUid" resultType="com.hust.hydroelectric_backend.Entity.User" >
+        SELECT
+          *
+        FROM
+          hydro_electric.dbo.t_user
         where
           u_id = #{uid}
           and is_delete = 0
@@ -28,14 +39,14 @@
         SELECT
           *
         FROM
-          t_user
+          hydro_electric.dbo.t_user
         where
           is_delete = 0
     </select>
 
     <insert id="saveUser" parameterType="com.hust.hydroelectric_backend.Entity.User" useGeneratedKeys="true" keyProperty="uId">
         insert into
-          t_user(
+          hydro_electric.dbo.t_user(
             u_name,
             u_tel,
             b_id,
@@ -54,7 +65,7 @@
 
     <update id="delUserByUid" parameterType="java.lang.Integer">
         update
-          t_user
+          hydro_electric.dbo.t_user
         set
           is_delete = 1
         where
@@ -63,7 +74,7 @@
 
     <update id="uptUser" parameterType="com.hust.hydroelectric_backend.Entity.User">
         update
-          t_user
+        hydro_electric.dbo.t_user
         <set>
             <if test="uName !=null"> ,u_name = #{uName}</if>
             <if test="uTel !=null"> ,u_tel = #{uTel}</if>
@@ -81,7 +92,7 @@
         select
           u_id
         from
-          t_user
+          hydro_electric.dbo.t_user
         where
           b_id = #{bId}
           and is_delete = 0
@@ -107,7 +118,7 @@
                 address,
                 account_balance
             from
-                t_user
+                hydro_electric.dbo.t_user
         ) u join (
             select
                 meter_no as meter_no,
@@ -117,7 +128,7 @@
                 0 as meter_type,
                 u_id as u_id
             from
-                t_watermeter
+                hydro_electric.dbo.t_watermeter
             union all
             select
                 ammeter_no as meter_no,
@@ -127,7 +138,7 @@
                 1 as meter_type,
                 u_id as u_id
             from
-                t_ammeter
+                hydro_electric.dbo.t_ammeter
         ) tmp
         on u.u_id = tmp.u_id
         where u.u_id = #{uid}
@@ -153,7 +164,7 @@
                 address,
                 account_balance
             from
-                t_user
+                hydro_electric.dbo.t_user
         ) u join (
             select
                 meter_no as meter_no,
@@ -163,7 +174,7 @@
                 0 as meter_type,
                 u_id as u_id
             from
-                t_watermeter
+                hydro_electric.dbo.t_watermeter
             union all
             select
                 ammeter_no as meter_no,
@@ -173,7 +184,7 @@
                 1 as meter_type,
                 u_id as u_id
             from
-                t_ammeter
+                hydro_electric.dbo.t_ammeter
         ) tmp
         on u.u_id = tmp.u_id
         where u.u_id in
@@ -186,7 +197,7 @@
         select
           u_id
         from
-          t_user
+          hydro_electric.dbo.t_user
         where
           u_name = #{uname}
           and enprNo = #{enprNo}
@@ -196,7 +207,7 @@
         select
           *
         from
-          t_user
+          hydro_electric.dbo.t_user
         where
           u_name = #{uName}
           and u_tel = #{tel}
@@ -216,8 +227,8 @@
           w.read_value as read_value,
           w.state as state,
           w.meter_type as meter_type
-        from t_users u
-        join t_watermeter w
+        from hydro_electric.dbo.t_users u
+        join hydro_electric.dbo.t_watermeter w
         on u.u_id = w.u_id
     </select>
 

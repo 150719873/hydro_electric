@@ -43,6 +43,11 @@ public class UserService {
 
     private static Logger logger = LoggerFactory.getLogger(UserService.class);
 
+    public ResultData findByUserIdAndEnprNo(int uid, String enprNo) {
+        User user = userMapper.findByUidAndEnprNo(uid,enprNo);
+        return Result.success(user);
+    }
+
     public ResultData findByUserId(int uid, String enprNo) {
         User user = userMapper.findByUid(uid);
         return Result.success(user);

@@ -5,7 +5,7 @@
     <!--mapper接口所在包-->
     <insert id="addEnpr" parameterType="com.hust.hydroelectric_backend.Entity.Areas.Enpr">
         insert into
-          t_enterprise(
+          hydro_electric.dbo.t_enterprise(
             enprNo,
             enpr_name,
             create_time
@@ -20,21 +20,21 @@
         select
           *
         from
-          t_enterprise
+        hydro_electric.dbo.t_enterprise
     </select>
 
     <select id="findByEnprNo" resultType="com.hust.hydroelectric_backend.Entity.Areas.Enpr">
         select
           *
         from
-          t_enterprise
+          hydro_electric.dbo.t_enterprise
         where
           enprNo = #{enprNo}
     </select>
 
     <update id="uptByEnprNo" parameterType="com.hust.hydroelectric_backend.Entity.Areas.Enpr">
         update
-          t_enterprise
+        hydro_electric.dbo.t_enterprise
         <set>
             <if test="enprName !=null"> ,enpr_name = #{enprName}</if>
             <if test="appId !=null"> ,app_id = #{appId}</if>

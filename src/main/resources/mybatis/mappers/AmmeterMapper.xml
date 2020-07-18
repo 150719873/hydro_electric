@@ -8,7 +8,7 @@
         select
           *
         from
-          t_ammeter
+          hydro_electric.dbo.t_ammeter
         where
           ammeter_no = #{ammeterNo}
           and enprNo = #{enprNo}
@@ -19,7 +19,7 @@
         select
           *
         from
-          t_ammeter
+        hydro_electric.dbo.t_ammeter
         where
           enprNo = #{enprNo}
           and is_delete = 0
@@ -30,14 +30,14 @@
         select
           *
         from
-          t_ammeter
+          hydro_electric.dbo.t_ammeter
         where
           is_delete = 0
     </select>
 
     <update id="uptAmmeterValue" parameterType="com.hust.hydroelectric_backend.Entity.Ammeters.Ammeter">
         update
-          t_ammeter
+          hydro_electric.dbo.t_ammeter
         set
           read_time = #{readTime},
           read_value = #{readValue},
@@ -50,11 +50,11 @@
 
     <update id="delete">
         update
-          t_ammeter
+          hydro_electric.dbo.t_ammeter
         set
           is_delete = 1
         where
-          ammeter_no = #{ammeterNo}
+          ammeter_no = #{meterNo}
           and enprNo = #{enprNo}
     </update>
 
@@ -62,7 +62,7 @@
         select
           *
         from
-          t_ammeter
+          hydro_electric.dbo.t_ammeter
         where
           id_delete = 0
           and c_id =#{cid}
@@ -73,7 +73,7 @@
         select
           *
         from
-          t_ammeter
+          hydro_electric.dbo.t_ammeter
         where
           is_delete = 0
           and u_id = #{uid}
@@ -83,7 +83,7 @@
         select
           *
         from
-          t_ammeter
+          hydro_electric.dbo.t_ammeter
         where
           center_id = #{centerId}
           and is_delete = 0

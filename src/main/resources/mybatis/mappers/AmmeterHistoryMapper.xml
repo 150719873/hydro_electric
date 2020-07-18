@@ -12,9 +12,9 @@
           read_type,
           enprNo
         from
-          t_ammeter_historydata
+        hydro_electric.dbo.t_ammeter_historydata
         where
-          meter_no = #{ammeterNo}
+          ammeter_no = #{meterNo}
           and enprNo = #{enprNo}
           and read_type = #{readType}
         <if test="startLine !=-1">

@@ -12,9 +12,9 @@
             read_time,
             enprNo
         from
-          t_watermeter_historydata
+        hydro_electric.dbo.t_watermeter_historydata
         where
-            meter_no = #{ammeterNo}
+            meter_no = #{meterNo}
             and enprNo = #{enprNo}
         <if test="startLine !=-1">
             <![CDATA[
@@ -32,7 +32,7 @@
         select
           read_value
         from
-          t_watermeter_historydata
+          hydro_electric.dbo.t_watermeter_historydata
         where
           meter_no = #{ammeterNo}
           and enprNo = #{enprNo}

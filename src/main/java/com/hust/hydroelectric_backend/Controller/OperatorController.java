@@ -49,7 +49,7 @@ public class OperatorController {
     /**
      * 添加管理员
      */
-    @PostMapping("/operator")
+    @PostMapping("/addOperator")
     public ResultData addOperator(@RequestBody Operator operator){
         return ResponseHandler.doHandle(() -> operatorService.addOperator(operator));
     }
@@ -57,7 +57,7 @@ public class OperatorController {
     /**
      * 删除管理员
      */
-    @DeleteMapping("/operator")
+    @DeleteMapping("/delOperator")
     public ResultData delOperator(@RequestParam(value = "operatorId", defaultValue = "-1") int id,
                                   @RequestParam("enprNo") String enprNo){
         return ResponseHandler.doHandle(() -> operatorService.delOperator(id, enprNo));
@@ -66,7 +66,7 @@ public class OperatorController {
     /**
      * 修改管理员信息
      */
-    @PutMapping("/operator")
+    @PutMapping("/uptOperator")
     public ResultData uptOperator(@RequestBody Operator operator){
         return ResponseHandler.doHandle(() -> operatorService.uptOperator(operator));
     }

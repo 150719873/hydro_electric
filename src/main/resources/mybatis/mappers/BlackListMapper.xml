@@ -8,14 +8,14 @@
           operator_id,
           black_url
         from
-          t_blacklist
+          hydro_electric.dbo.t_blacklist
         where
           operator_id = #{operatorId}
     </select>
 
     <update id="setOperatorBlackList" parameterType="com.hust.hydroelectric_backend.Entity.BlackList">
         update
-          t_blacklist
+          hydro_electric.dbo.t_blacklist
         set
           black_url =#{blackUrl}
         where

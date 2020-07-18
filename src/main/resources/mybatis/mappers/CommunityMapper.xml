@@ -6,7 +6,7 @@
 
     <insert id="addCommunity" parameterType="com.hust.hydroelectric_backend.Entity.Areas.Community">
         insert into
-          t_community(
+          hydro_electric.dbo.t_community(
             c_name,
             enprNo
           ) values (
@@ -21,7 +21,7 @@
           c_name,
           enprNo
         from
-          t_community
+          hydro_electric.dbo.t_community
         where
           c_id = #{cId}
           and is_delete = 0
@@ -29,7 +29,7 @@
 
     <update id="uptCommunity" parameterType="com.hust.hydroelectric_backend.Entity.Areas.Community">
         update
-          t_community
+            hydro_electric.dbo.t_community
         <set>
             <if test="cName !=null"> ,c_name = #{cName}</if>
             <if test="enprNo !=null"> ,enprNo = #{enprNo}</if>
@@ -41,7 +41,7 @@
 
     <update id="delCommunity" parameterType="java.lang.Integer">
         update
-          t_community
+          hydro_electric.dbo.t_community
         set
           is_delete = 1
         where
@@ -54,7 +54,7 @@
           c_name,
           enprNo
         from
-          t_community
+          hydro_electric.dbo.t_community
         where
           enprNo = #{enprNo}
           and is_delete = 0

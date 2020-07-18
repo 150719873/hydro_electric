@@ -10,9 +10,9 @@
           read_date as dateline,
           0 as meter_type
         from
-          t_watermeter_usage
+          hydro_electric.dbo.t_watermeter_usage
         where
-          watermeter_no = #{ammeterNo}
+          watermeter_no = #{meterNo}
           and enprNo = #{enprNo}
     </select>
 
@@ -20,7 +20,7 @@
         select
           sum(watermeter_usage) as total_usage
         from
-          t_watermeter_usage
+          hydro_electric.dbo.t_watermeter_usage
         where
           watermeter_no in (
             select
@@ -40,7 +40,7 @@
 
     <insert id="save" parameterType="com.hust.hydroelectric_backend.Entity.Watermeters.WatermeterUsage">
         insert into
-          t_watermeter_usage(
+          hydro_electric.dbo.t_watermeter_usage(
             watermeter_no,
             watermeter_usage,
             read_date,

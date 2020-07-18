@@ -8,7 +8,7 @@
         select
           *
         from
-          t_schedule
+          hydro_electric.dbo.t_schedule
         where
           enprNo = #{enprNo}
     </select>
@@ -17,19 +17,19 @@
         select
           job_id
         from
-          t_schedule
+          hydro_electric.dbo.t_schedule
         where
           center_no = #{centerNo}
           and enprNo = #{enprNo}
     </select>
 
     <delete id="deleteScheduleJob">
-        delete from t_schedule where job_id = #{id}
+        delete from hydro_electric.dbo.t_schedule where job_id = #{id}
     </delete>
 
     <insert id="addScheduleJob" parameterType="com.hust.hydroelectric_backend.Entity.ScheduleJob" useGeneratedKeys="true" keyProperty="id">
         insert into
-          t_schedule (
+          hydro_electric.dbo.t_schedule (
             center_no,
             job_type,
             enprNo,

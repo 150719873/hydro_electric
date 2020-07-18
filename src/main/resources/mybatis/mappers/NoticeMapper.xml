@@ -5,7 +5,7 @@
     <!--mapper接口所在包-->
     <insert id="addNotice" parameterType="com.hust.hydroelectric_backend.Entity.Notice">
         insert into
-          t_notice(
+          hydro_electric.dbo.t_notice(
             title,
             content,
             publish_time,
@@ -22,7 +22,7 @@
         select
           *
         from
-          t_notice
+          hydro_electric.dbo.t_notice
         where
           enprNo = #{enprNo}
           and is_delete = 0
@@ -30,7 +30,7 @@
 
     <update id="uptNotice" parameterType="com.hust.hydroelectric_backend.Entity.Notice">
         update
-          t_notice
+        hydro_electric.dbo.t_notice
         <set>
             <if test="title !=null"> ,title = #{title}</if>
             <if test="content !=null"> ,content = #{content}</if>
@@ -43,7 +43,7 @@
 
     <update id="delNotice" parameterType="java.lang.Integer">
         update
-          t_notice
+          hydro_electric.dbo.t_notice
         set
           is_delete = 1
         where

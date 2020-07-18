@@ -35,7 +35,7 @@ public class AreaController {
     /**
      * 获取公司相关信息
      */
-    @GetMapping("/enpr/{epnrNo}")
+    @GetMapping("/enpr/{enprNo}")
     public ResultData getEnprMsg(@PathVariable("enprNo") String enprNo){
         return ResponseHandler.doHandle(() -> enprService.getByEnprNo(enprNo));
     }
@@ -43,7 +43,7 @@ public class AreaController {
     /**
      * 修改公司信息
      */
-    @PutMapping("/enpr")
+    @PutMapping("/modifyEnpr")
     public ResultData uptEnprMsg(@RequestBody Enpr enpr){
         return ResponseHandler.doHandle(() -> enprService.uptByEnprNo(enpr));
     }
@@ -51,7 +51,7 @@ public class AreaController {
     /**
      * 获取小区信息
      */
-    @GetMapping("/community")
+    @GetMapping("/getCommunity")
     public ResultData getCommunity(@RequestParam(value = "cId") int id) {
         return ResponseHandler.doHandle(() -> communityService.getCommunity(id));
     }
@@ -59,7 +59,7 @@ public class AreaController {
     /**
      * 增加小区信息
      */
-    @PostMapping("/community")
+    @PostMapping("/addCommunity")
     public ResultData addCommunity(@RequestBody Community community) {
         return ResponseHandler.doHandle(() -> communityService.addCommunity(community));
     }
@@ -67,7 +67,7 @@ public class AreaController {
     /**
      * 删除小区信息
      */
-    @DeleteMapping("/community")
+    @DeleteMapping("/delCommunity")
     public ResultData delCommunity(@RequestParam(value = "cId") int id) {
         return ResponseHandler.doHandle(() -> communityService.delCommunity(id));
     }
@@ -75,7 +75,7 @@ public class AreaController {
     /**
      * 更改小区信息
      */
-    @PutMapping("/community")
+    @PutMapping("/changeCommunity")
     public ResultData uptCommunity(@RequestBody Community community) {
         return ResponseHandler.doHandle(() -> communityService.uptCommunity(community));
     }
@@ -103,7 +103,7 @@ public class AreaController {
     /**
      * 获取楼栋信息
      */
-    @GetMapping("/block")
+    @GetMapping("/getBlock")
     public ResultData getBlock(@RequestParam(value = "bId") int bid) {
         return ResponseHandler.doHandle(() -> blockService.getBlock(bid));
     }
@@ -111,7 +111,7 @@ public class AreaController {
     /**
      * 删除楼栋信息
      */
-    @DeleteMapping("/block")
+    @DeleteMapping("/delBlock")
     public ResultData delBlock(@RequestParam(value = "bId") int bid) {
         return ResponseHandler.doHandle(() -> blockService.delBlock(bid));
     }
@@ -119,7 +119,7 @@ public class AreaController {
     /**
      * 更改楼栋信息
      */
-    @PutMapping("/block")
+    @PutMapping("/changeBlock")
     public ResultData uptBlock(@RequestBody Block block) {
         return ResponseHandler.doHandle(() -> blockService.uptBlock(block));
     }

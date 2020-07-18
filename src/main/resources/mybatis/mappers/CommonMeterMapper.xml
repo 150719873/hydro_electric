@@ -17,7 +17,7 @@
             c_id,
             c_name
           from
-            t_community
+            hydro_electric.dbo.t_community
           where c_id = #{cId}
         ) com join (
              select
@@ -31,7 +31,7 @@
                       count(0) as water_total,
                       #{cId} as c_id
                     from
-                      t_watermeter
+                      hydro_electric.dbo.t_watermeter
                     where
                       c_id = #{cId}
                       and is_delete = 0
@@ -42,7 +42,7 @@
                       count(0) as water_suc_total,
                       #{cId} as c_id
                     from
-                      t_watermeter
+                      hydro_electric.dbo.t_watermeter
                     where
                       c_id = #{cId}
                       and state = 0
@@ -55,7 +55,7 @@
                       count(0) as ammter_total,
                       #{cId} as c_id
                     from
-                      t_ammeter
+                      hydro_electric.dbo.t_ammeter
                     where
                       c_id = #{cId}
                       and is_delete = 0
@@ -67,7 +67,7 @@
                       count(0) as ammter_suc_total,
                       #{cId} as c_id
                     from
-                      t_ammeter
+                      hydro_electric.dbo.t_ammeter
                     where
                       c_id = #{cId}
                       and state = 0

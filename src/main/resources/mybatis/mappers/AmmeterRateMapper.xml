@@ -8,7 +8,7 @@
         select
           *
         from
-          t_ammeter_rate
+          hydro_electric.dbo.t_ammeter_rate
         where
           enprNo = #{enprNo}
     </select>
@@ -17,14 +17,14 @@
         select
           *
         from
-          t_ammeter_rate
+          hydro_electric.dbo.t_ammeter_rate
         where
           enprNo = #{enprNo}
     </select>
 
     <update id="updateRate" parameterType="com.hust.hydroelectric_backend.Entity.Ammeters.AmmeterRate">
         update
-        t_ammeter_rate
+            hydro_electric.dbo.t_ammeter_rate
         <set>
             <if test="ratePrice !=null"> ,rate_price = #{ratePrice}</if>
             <if test="rateTime !=null"> ,rate_time = #{rateTime}</if>

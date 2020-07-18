@@ -53,7 +53,7 @@ public class MeterController {
      * 删除表
      * 0为水表  1为电表
      */
-    @DeleteMapping("/meter")
+    @DeleteMapping("/delMeter")
     public ResultData delMeter(@RequestParam("enprNo") String enprNo,
                                @RequestParam("meterNo") String meterNo,
                                @RequestParam("meterType") int meterType) {
@@ -165,6 +165,7 @@ public class MeterController {
 
     /**
      * 查询单个电表 各类型 历史读数记录
+     * 
      * readType:
      * 0：总量
      * 1：尖峰

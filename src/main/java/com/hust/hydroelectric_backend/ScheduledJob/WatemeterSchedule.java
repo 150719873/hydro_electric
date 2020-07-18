@@ -62,6 +62,7 @@ public class WatemeterSchedule {
         watermeter.setPreReadTime(watermeter.getReadTime());
         watermeter.setState(0);
 
+        //更新watermeterUsage表
         WatermeterUsage watermeterUsage = new WatermeterUsage();
         watermeterUsage.setWatermeterNo(watermeter.getMeterNo());
         watermeterUsage.setReadDate(TimeUtils.getYesterday());
@@ -69,6 +70,7 @@ public class WatemeterSchedule {
         watermeterUsage.setReadValue(watermeter.getReadValue());
         watermeterUsage.setEnprNo(watermeter.getEnprNo());
 
+        //更新watermeterCost表
         int uid = watermeter.getuId();
         WatermeterCost watermeterCost = new WatermeterCost();
         watermeterCost.setuId(uid);
